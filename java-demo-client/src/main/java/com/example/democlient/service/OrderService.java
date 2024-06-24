@@ -67,7 +67,7 @@ public class OrderService {
         
         BizOrder order = JSON.parseObject(dataStr, BizOrder.class);
         if (order == null) {
-            throw new RuntimeException("数据正确");
+            throw new RuntimeException("数据不正确");
         }
 
         if (order.getCustOrderId() == null) {
