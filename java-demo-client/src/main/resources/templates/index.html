@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <script type="text/javascript"
+            src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/1.7.2/jquery.min.js"></script>
+</head>
+
+<body>
+
+<form>
+    金额：<input type="text" id="money" value="9.9"/>
+    <br>
+    <button id="btn" type="button">提交</button>
+
+    <div id="div1"></div>
+</form>
+
+<script>
+    $("#btn").click(function () {
+        $("#div1").html("");
+        let m = $("#money").val();
+        $.ajax({
+            url: "create?m=" + m, type: 'post', success: function (result) {
+                $("#div1").html(result.data.payUrl);
+                setTimeout(function () {
+                    window.location.href = result.data.payUrl;
+                }, 1500)
+            }
+        });
+    });
+</script>
+</body>
+</html>

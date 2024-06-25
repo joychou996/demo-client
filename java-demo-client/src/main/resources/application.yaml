@@ -5,6 +5,9 @@ spring:
   application:
     name: 测试Demo
 
+  thymeleaf:
+    cache: false # 关闭缓存
+
 demo:
   custCode: SM6ML9Y8AP29XIWD5B5J
   publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiuvyiDU8rtL0bTnvkGrQGicuJBlprcHfS72eLCYKg8sQUZuSzLyiYHGCdASMoTbBqS9wdntFUgCmkMSu+oko5fto6NdA8UW+WCBStScHMbfcRIkvNMwESKxDyXf2ctb3qoraZmmolGnuAx9lqj00RD5mZyGMOtgvlqVvuWQl6YwIDAQAB
