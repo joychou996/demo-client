@@ -1,0 +1,14 @@
+server:
+  port: 82
+
+spring:
+  application:
+    name: 测试Demo
+
+  thymeleaf:
+    cache: false # 关闭缓存
+
+demo:
+  custCode: 7SRL1IM4XL05ZEXLLZW3
+  publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCaSODeUkOq0CQRp13Kpnz5ETYL23BnbPi0tnE4kbLm8LhII5KIS4prw2ogK6yTWAqrUT1PExyxlZYPNUSbWBYsZFilJU/Y+xhWwR2kI7W+377bWdhMkeOsz5BXsW1GLsEc4xkI6Uxm983GRwlyTRiEwYh+ZJqhW4KcK51i82GacwIDAQAB
+  payUrl: http://localhost:8080/order/create
