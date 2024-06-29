@@ -15,11 +15,11 @@
     <br>
     <button id="btn" type="button">提交</button>
 
-
+    <br>   <br>   <br>   <br>   <br>
 
     代付金额：<input type="text" id="money2" value="9.9"/>
     <br>
-    <input type="text" id="收款人Tag" value="$abcdd"/>
+    <input type="text" id="tag1" value="$only1luck"/>
     <button id="btn2" type="button">代付</button>
 
     <div id="div1"></div>
@@ -30,7 +30,7 @@
         $("#div1").html("");
         let m = $("#money").val();
         $.ajax({
-            url: "create?m=" + m, type: 'post', success: function (result) {
+            url: "order/create?m=" + m, type: 'post', success: function (result) {
                 $("#div1").html(result.data.payUrl);
                 setTimeout(function () {
                     window.location.href = result.data.payUrl;
@@ -40,15 +40,14 @@
     });
 
 
-    $("#btn").click(function () {
+    $("#btn2").click(function () {
+        debugger
         $("#div1").html("");
-        let m = $("#money").val();
+        let m = $("#money2").val();
+        let tag = $("#tag1").val();
         $.ajax({
-            url: "create?m=" + m, type: 'post', success: function (result) {
-                $("#div1").html(result.data.payUrl);
-                setTimeout(function () {
-                    window.location.href = result.data.payUrl;
-                }, 1500)
+            url: "behalfpay/create?m=" + m+"&tag="+tag, type: 'post', success: function (result) {
+                $("#div1").html(JSON.stringify(result));
             }
         });
     });
