@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 import java.text.Bidi;
 
 /**
- * 接口
+ * 充值接口
  */
 @RestController
 public class OrderController {
@@ -35,7 +35,7 @@ public class OrderController {
      *
      * @return
      */
-    @PostMapping("/create")
+    @PostMapping("/order/create")
     public ResponseBodyVo CreateOrder(@RequestParam("m") BigDecimal money) {
 
         CreateOrder createOrder = new CreateOrder();
@@ -56,7 +56,7 @@ public class OrderController {
      *
      * @return
      */
-    @PostMapping("/callback")
+    @PostMapping("/order/callback")
     public ResponseBodyVo OrderCallBack(@RequestBody EncryptData data) {
         ResponseBodyVo bodyVo = new ResponseBodyVo();
         bodyVo.setData(orderService.OrderCallBack(data));

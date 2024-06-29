@@ -9,6 +9,7 @@ spring:
     cache: false # 关闭缓存
 
 demo:
-  custCode: 7SRL1IM4XL05ZEXLLZW3
-  publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCaSODeUkOq0CQRp13Kpnz5ETYL23BnbPi0tnE4kbLm8LhII5KIS4prw2ogK6yTWAqrUT1PExyxlZYPNUSbWBYsZFilJU/Y+xhWwR2kI7W+377bWdhMkeOsz5BXsW1GLsEc4xkI6Uxm983GRwlyTRiEwYh+ZJqhW4KcK51i82GacwIDAQAB
+  custCode: EVK1WTN0EKABOJ6RK3Z0
+  publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCLntmKpma0GbHXD6HG6uXl7UYyre9Gg8T4dXEvETeRKP/mtNNCLSq0Iny3XCxlSbit+vG69rrQmGlM5okfPkLYFqwhgip5u74fTcmxaqiH2X9LV85NKPQozim4fnkbvfdTqjLNoBsMLcsg/cdl9at7A6gMonbCAA8w6wpxQfiMAwIDAQAB
   payUrl: http://localhost:8080/order/create
+  behalfpayUrl: http://localhost:8080/behalfpay/create

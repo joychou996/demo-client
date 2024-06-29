@@ -1,10 +1,7 @@
 package com.example.democlient.service;
 
 import com.alibaba.fastjson2.JSON;
-import com.example.democlient.domain.BizOrder;
-import com.example.democlient.domain.CreateOrder;
-import com.example.democlient.domain.EncryptData;
-import com.example.democlient.domain.ResponseBodyVo;
+import com.example.democlient.domain.*;
 import com.example.democlient.utils.RsaUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,18 +13,18 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-public class OrderService {
+public class BehalfpayService {
 
     @Value("${demo.publicKey}")
     String publicKey = "";
 
-    @Value("${demo.payUrl}")
+    @Value("${demo.behalfpayUrl}")
     String payUrl = "";
 
     @Autowired
     RestTemplate restTemplate;
 
-    public ResponseBodyVo CreateOrder(CreateOrder orderVo) {
+    public ResponseBodyVo CreateBehalfPayOrder(BizBehalfpay orderVo) {
 
         ResponseBodyVo bodyVo = new ResponseBodyVo();
         //加密
@@ -47,7 +44,7 @@ public class OrderService {
             String body = postForEntity.getBody();
             bodyVo = JSON.parseObject(body, ResponseBodyVo.class);
             if (bodyVo.getCode().equals(200)) {
-                BizOrder order = JSON.parseObject(JSON.toJSONString(bodyVo.getData()), BizOrder.class);
+                BizBehalfpay order = JSON.parseObject(JSON.toJSONString(bodyVo.getData()), BizBehalfpay.class);
                 bodyVo.setData(order);
             }
         } else {
@@ -59,13 +56,13 @@ public class OrderService {
 
     }
 
-    public Boolean OrderCallBack(EncryptData data) {
+    public Boolean BehalfPayCallBack(EncryptData data) {
         //解密
         String dataStr = RsaUtils.DecryptByPublicKey(data.getData(), publicKey);
 
         System.out.println(dataStr);
-        
-        BizOrder order = JSON.parseObject(dataStr, BizOrder.class);
+
+        BizBehalfpay order = JSON.parseObject(dataStr, BizBehalfpay.class);
         if (order == null) {
             throw new RuntimeException("数据不正确");
         }
@@ -80,7 +77,6 @@ public class OrderService {
         }
 
         //todo 到数据库里对比，更新自已的订单，前端刷新
-
 
         return true;
     }

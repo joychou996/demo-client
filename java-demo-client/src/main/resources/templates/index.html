@@ -11,14 +11,35 @@
 <body>
 
 <form>
-    金额：<input type="text" id="money" value="9.9"/>
+    充值金额：<input type="text" id="money" value="9.9"/>
     <br>
     <button id="btn" type="button">提交</button>
+
+
+
+    代付金额：<input type="text" id="money2" value="9.9"/>
+    <br>
+    <input type="text" id="收款人Tag" value="$abcdd"/>
+    <button id="btn2" type="button">代付</button>
 
     <div id="div1"></div>
 </form>
 
 <script>
+    $("#btn").click(function () {
+        $("#div1").html("");
+        let m = $("#money").val();
+        $.ajax({
+            url: "create?m=" + m, type: 'post', success: function (result) {
+                $("#div1").html(result.data.payUrl);
+                setTimeout(function () {
+                    window.location.href = result.data.payUrl;
+                }, 1500)
+            }
+        });
+    });
+
+
     $("#btn").click(function () {
         $("#div1").html("");
         let m = $("#money").val();
