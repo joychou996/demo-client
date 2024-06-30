@@ -62,7 +62,7 @@ public class BehalfpayService {
 
         System.out.println(dataStr);
 
-        BizBehalfpay order = JSON.parseObject(dataStr, BizBehalfpay.class);
+        CallBackBehalfVo order = JSON.parseObject(dataStr, CallBackBehalfVo.class);
         if (order == null) {
             throw new RuntimeException("数据不正确");
         }
@@ -77,6 +77,8 @@ public class BehalfpayService {
         }
 
         //todo 到数据库里对比，更新自已的订单，前端刷新
+        //为了保证接口幂等性，如果订单已经处理，也请直接返回成功
+
 
         return true;
     }
