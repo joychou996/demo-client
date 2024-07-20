@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>同步数据</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <script type="text/javascript"
+            src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/1.7.2/jquery.min.js"></script>
+</head>
+
+<body>
+
+<form>
+    同步的文字 ：
+
+    <textarea rows="30" style="width: 100%" id="txt"></textarea>
+
+    <button id="btnSave" type="button">保存</button>
+
+    <button id="btnClear" type="button">清除</button>
+
+    <div id="div1"></div>
+</form>
+
+<script>
+
+
+    function load() {
+        $.ajax({
+            url: "/read", type: 'get', success: function (result) {
+
+                $("#txt").val(result.data);
+            }
+        });
+    }
+
+    function save() {
+        let data = JSON.stringify({data: $("#txt").val(), status: 200});
+        $.ajax({
+            url: "/save", contentType:'application/json', type: 'post', data: data, success: function (result) {
+                $("#div1").text("保存成功"+(new Date()).toString());
+            }
+        });
+    }
+
+
+    $("#btnSave").click(function () {
+        save();
+    });
+
+
+    $("#btnClear").click(function () {
+        $("#txt").val("");
+        save();
+    });
+
+
+    window.onload = function () {
+        load();
+    }
+</script>
+</body>
+</html>
