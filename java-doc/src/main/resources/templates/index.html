@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <script type="text/javascript"
             src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/1.7.2/jquery.min.js"></script>
+
+    <style>
+        .viewport {
+            width: 100%;
+        }
+
+        textarea {
+            font-size: 1.5rem;
+        }
+
+        button {
+            width: 150px;
+            font-size: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,13 +28,17 @@
 <form>
     同步的文字 ：
 
-    <textarea rows="30" style="width: 100%" id="txt"></textarea>
+    <textarea rows="12" style="width: 100%" id="txt"></textarea>
 
     <button id="btnSave" type="button">保存</button>
+
+    <button id="btnLink" type="button">生成链接</button>
 
     <button id="btnClear" type="button">清除</button>
 
     <div id="div1"></div>
+
+    <div style="padding: 30px"><a id="link" href="" target="_blank"></a></div>
 </form>
 
 <script>
@@ -37,8 +56,8 @@
     function save() {
         let data = JSON.stringify({data: $("#txt").val(), status: 200});
         $.ajax({
-            url: "/save", contentType:'application/json', type: 'post', data: data, success: function (result) {
-                $("#div1").text("保存成功"+(new Date()).toString());
+            url: "/save", contentType: 'application/json', type: 'post', data: data, success: function (result) {
+                $("#div1").text("保存成功" + (new Date()).toString());
             }
         });
     }
@@ -53,6 +72,22 @@
         $("#txt").val("");
         save();
     });
+
+
+
+    $("#btnLink").click(function () {
+        let url= $("#txt").val();
+        if(!url.startsWith("http")){
+            alert("不是正确的链接");
+            $("#link").text("")
+            return;
+        }
+
+        $("#link").attr("href",url);
+        $("#link").text("点击我打开Cash App")
+
+    });
+
 
 
     window.onload = function () {
