@@ -8,8 +8,6 @@
 
 商户编码和公钥信息我们会下发
 
-服务地址为： https://www.xxxxx.com/prod-api/order/create 
-
 如果有变动上述信息，我们会通知
 
 ## 2、代码说明
@@ -18,7 +16,7 @@
 
 ### 创建充值订单
 
-url: https://www.xxxx.com/prod-api/order/create
+url:  api地址/order/create
 
 type:POST
 
@@ -108,7 +106,7 @@ data: {
 
 ### 创建代付订单
 
-url: https://www.xxxx.com/prod-api/behalfpay/create
+url:  api地址/behalfpay/create
 
 type:POST
 
