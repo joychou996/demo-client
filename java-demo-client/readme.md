@@ -37,7 +37,7 @@ data:
 {
 "custCode":"商户编码",
 "custOrderId":"商户订单ID",
-"unit":"订单金额单位"，
+"unit":"订单金额单位 USD"，
 "orderAmount":"订单金额"
 }
 ```
@@ -53,7 +53,7 @@ data: {
     custCode:"商户编码",
     custOrderId:"商户订单编号",
     createAt:"创建时间",
-    unit:"订单金额单位",
+    unit:"订单金额单位 USD",
     orderAmount:"订单金额"
     payUrl:"支付链接"
   }
@@ -84,7 +84,7 @@ data: {
 {
     orderId:"系统订单ID",
     custOrderId:"商户订单编号",
-    unit:"订单金额单位",
+    unit:"订单金额单位USD",
     orderAmount:"订单金额"
     payTime:"支付时间"
 }
