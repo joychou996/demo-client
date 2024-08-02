@@ -85,8 +85,10 @@ data: {
     orderId:"系统订单ID",
     custOrderId:"商户订单编号",
     unit:"订单金额单位USD",
-    orderAmount:"订单金额"
-    payTime:"支付时间"
+    orderAmount:"订单金额",
+    payName:"付款人",
+    payCashTag:"付款标签",
+    cashId:"Cash交易ID"
 }
 ```
 
@@ -173,8 +175,8 @@ data: {
     orderId:"系统订单ID",
     custOrderId:"商户订单编号",
     isPass:"是否成功",
-    noPassReason："不成功原因"
-    orderAmount:"订单金额"
+    noPassReason："不成功原因",
+    orderAmount:"订单金额",
     payTime:"支付时间"
 }
 ```

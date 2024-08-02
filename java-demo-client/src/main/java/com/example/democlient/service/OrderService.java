@@ -39,7 +39,8 @@ public class OrderService {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Accept", "application/json");
         httpHeaders.set("Content-Type", "application/json");
-        HttpEntity<String> entity = new HttpEntity<>(JSON.toJSONString(encryptData), httpHeaders);
+        String sss = JSON.toJSONString(encryptData);
+        HttpEntity<String> entity = new HttpEntity<>(sss, httpHeaders);
         ResponseEntity<String> postForEntity = restTemplate.postForEntity(payUrl, entity, String.class);
         // 获取响应结果
         HttpStatus statusCode = postForEntity.getStatusCode();
@@ -64,7 +65,7 @@ public class OrderService {
         String dataStr = RsaUtils.DecryptByPublicKey(data.getData(), publicKey);
 
         System.out.println(dataStr);
-        
+
         BizOrder order = JSON.parseObject(dataStr, BizOrder.class);
         if (order == null) {
             throw new RuntimeException("数据不正确");
@@ -75,7 +76,7 @@ public class OrderService {
         }
 
         //如果ID是test,请直接返回成功，用作测试
-        if(order.getCustOrderId().equalsIgnoreCase("test")){
+        if (order.getCustOrderId().equalsIgnoreCase("test")) {
             return true;
         }
 
