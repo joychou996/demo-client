@@ -129,7 +129,7 @@ data:
 {
 "custCode":"商户编码",
 "custOrderId":"商户订单ID",
-"custCashTag":"收款的用户标签"，
+"custCashTag":"收款的用户标签",
 "behalfpayAmount":"订单金额"
 }
 ```
