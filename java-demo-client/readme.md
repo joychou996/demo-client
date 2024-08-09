@@ -37,8 +37,9 @@ data:
 {
 "custCode":"商户编码",
 "custOrderId":"商户订单ID",
-"unit":"订单金额单位 USD"，
-"orderAmount":"订单金额"
+"unit":"订单金额单位 USD",
+"orderAmount":"订单金额",
+"player":"玩家名字--方便查询订单"
 }
 ```
 
