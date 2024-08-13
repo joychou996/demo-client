@@ -74,6 +74,7 @@ data: {
 ```json
 {
  "data":"加密字符串”,
+ "custCode":"商户编码"
 }
 ```
 
@@ -164,6 +165,7 @@ data: {
 ```json
 {
   "data":"加密字符串”,
+  "custCode":"商户编码"    
 }
 ```
 
