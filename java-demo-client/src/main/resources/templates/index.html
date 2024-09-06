@@ -12,6 +12,8 @@
 
 <form>
     充值金额：<input type="text" id="money" value="9.9"/>
+
+    玩家ID：<input type="text" id="player" value=""/>
     <br>
     <button id="btn" type="button">提交</button>
 
@@ -32,8 +34,9 @@
     $("#btn").click(function () {
         $("#div1").html("");
         let m = $("#money").val();
+        let player = $("#player").val();
         $.ajax({
-            url: "order/create?m=" + m, type: 'post', success: function (result) {
+            url: "order/create?m=" + m + "&player=" + player, type: 'post', success: function (result) {
                 setTimeout(function () {
                     $("#payUrl2").text(result.data.payUrl);
                 }, 1500)

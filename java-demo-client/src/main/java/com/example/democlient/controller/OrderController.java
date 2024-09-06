@@ -36,7 +36,7 @@ public class OrderController {
      * @return
      */
     @PostMapping("/order/create")
-    public ResponseBodyVo CreateOrder(@RequestParam("m") BigDecimal money) {
+    public ResponseBodyVo CreateOrder(@RequestParam("m") BigDecimal money, @RequestParam(name = "player", required = false) String player) {
 
         CreateOrder createOrder = new CreateOrder();
         createOrder.setCustCode(custCode);
@@ -46,6 +46,7 @@ public class OrderController {
         createOrder.setCustOrderId(RandomUtil.randomString(16).toUpperCase());
         //订单金额
         createOrder.setOrderAmount(money);
+        createOrder.setPlayer(player);
         createOrder.setOrderAmount(createOrder.getOrderAmount().setScale(2, BigDecimal.ROUND_HALF_UP));
         return orderService.CreateOrder(createOrder);
     }

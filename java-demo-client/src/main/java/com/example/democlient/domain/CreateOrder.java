@@ -13,4 +13,6 @@ public class CreateOrder {
     private String unit;
     private BigDecimal orderAmount;
 
+    String player;
+
 }

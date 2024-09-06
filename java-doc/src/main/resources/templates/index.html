@@ -77,11 +77,6 @@
 
     $("#btnLink").click(function () {
         let url= $("#txt").val();
-        if(!url.startsWith("http")){
-            alert("不是正确的链接");
-            $("#link").text("")
-            return;
-        }
 
         $("#link").attr("href",url);
         $("#link").text("点击我打开Cash App")
