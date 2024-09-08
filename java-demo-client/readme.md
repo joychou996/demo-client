@@ -39,7 +39,7 @@ data:
 "custOrderId":"商户订单ID",
 "unit":"订单金额单位 USD",
 "orderAmount":"订单金额",
-"player":"玩家名字--方便查询订单"
+"player":"玩家ID,必填"
 }
 ```
 
