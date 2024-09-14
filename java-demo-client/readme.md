@@ -24,8 +24,8 @@ data:
 
 ```json
 {
- "data":"加密字符串”,
- "custCode":"商户编码"
+  "data": "加密字符串”,
+  "custCode": "商户编码"
 }
 ```
 
@@ -35,11 +35,12 @@ data:
 
 ```json
 {
-"custCode":"商户编码",
-"custOrderId":"商户订单ID",
-"unit":"订单金额单位 USD",
-"orderAmount":"订单金额",
-"player":"玩家ID,必填"
+  "custCode": "商户编码",
+  "custOrderId": "商户订单ID",
+  "unit": "订单金额单位 USD",
+  "orderAmount": "订单金额",
+  "player": "玩家ID,必填",
+  "deviceId": "玩家创建订单时的设备ID"
 }
 ```
 
@@ -47,16 +48,17 @@ data:
 
 ```json
 {
-code: 200, //200表示正确响应
-msg:"消息",
-data: {
-    orderId:"系统订单ID",
-    custCode:"商户编码",
-    custOrderId:"商户订单编号",
-    createAt:"创建时间",
-    unit:"订单金额单位 USD",
-    orderAmount:"订单金额"
-    payUrl:"支付链接"
+  code: 200,
+  //200表示正确响应
+  msg: "消息",
+  data: {
+    orderId: "系统订单ID",
+    custCode: "商户编码",
+    custOrderId: "商户订单编号",
+    createAt: "创建时间",
+    unit: "订单金额单位 USD",
+    orderAmount: "订单金额",
+    payUrl: "支付链接"
   }
 }
 ```
@@ -73,8 +75,8 @@ data: {
 
 ```json
 {
- "data":"加密字符串”,
- "custCode":"商户编码"
+  "data": "加密字符串”,
+  "custCode": "商户编码"
 }
 ```
 
@@ -84,13 +86,13 @@ data: {
 
 ```json
 {
-    orderId:"系统订单ID",
-    custOrderId:"商户订单编号",
-    unit:"订单金额单位USD",
-    orderAmount:"订单金额",
-    payName:"付款人",
-    payCashTag:"付款标签",
-    cashId:"Cash交易ID"
+  orderId: "系统订单ID",
+  custOrderId: "商户订单编号",
+  unit: "订单金额单位USD",
+  orderAmount: "订单金额",
+  payName: "付款人",
+  payCashTag: "付款标签",
+  cashId: "Cash交易ID"
 }
 ```
 
@@ -98,15 +100,15 @@ data: {
 
 ```json
 {
-    code:200, #200表示成功
-    data:true,
-    msg:"错误消息"
+  code: 200,
+  #
+  200表示成功
+  data: true,
+  msg: "错误消息"
 }
 ```
 
 **说明：为了保证接口幂等性，如果订单已经处理，也请直接返回成功。但请注意你自已的系统，不要重复累加数据**
-
-
 
 ### 创建代付订单
 
@@ -118,8 +120,8 @@ data:
 
 ```json
 {
- "data":"加密字符串”,
- "custCode":"商户编码"
+  "data": "加密字符串",
+  "custCode": "商户编码"
 }
 ```
 
@@ -129,10 +131,10 @@ data:
 
 ```json
 {
-"custCode":"商户编码",
-"custOrderId":"商户订单ID",
-"custCashTag":"收款的用户标签",
-"behalfpayAmount":"订单金额"
+  "custCode": "商户编码",
+  "custOrderId": "商户订单ID",
+  "custCashTag": "收款的用户标签",
+  "behalfpayAmount": "订单金额"
 }
 ```
 
@@ -140,19 +142,18 @@ data:
 
 ```json
 {
-code: 200, //200表示正确响应
-msg:"消息",
-data: {
-    orderId:"系统订单ID",
-    custCode:"商户编码",
-    custOrderId:"商户订单编号",
-    createAt:"创建时间",
-    behalfpayAmount:"订单金额"
+  code: 200,
+  //200表示正确响应
+  msg: "消息",
+  data: {
+    orderId: "系统订单ID",
+    custCode: "商户编码",
+    custOrderId: "商户订单编号",
+    createAt: "创建时间",
+    behalfpayAmount: "订单金额"
   }
 }
 ```
-
-
 
 ### 代付回调接口
 
@@ -164,8 +165,8 @@ data: {
 
 ```json
 {
-  "data":"加密字符串”,
-  "custCode":"商户编码"    
+  "data": "加密字符串”,
+  "custCode": "商户编码"
 }
 ```
 
@@ -175,12 +176,14 @@ data: {
 
 ```json
 {
-    orderId:"系统订单ID",
-    custOrderId:"商户订单编号",
-    isPass:"是否成功",
-    noPassReason："不成功原因",
-    orderAmount:"订单金额",
-    payTime:"支付时间"
+  orderId: "系统订单ID",
+  custOrderId: "商户订单编号",
+  isPass: "是否成功",
+  noPassReason
+  ：
+  "不成功原因",
+  orderAmount: "订单金额",
+  payTime: "支付时间"
 }
 ```
 
@@ -188,9 +191,11 @@ data: {
 
 ```json
 {
-    code:200, #200表示成功
-    data:true,
-    msg:"错误消息"
+  code: 200,
+  #
+  200表示成功
+  data: true,
+  msg: "错误消息"
 }
 ```
 
