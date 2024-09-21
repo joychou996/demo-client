@@ -1,5 +1,6 @@
 package com.example.democlient.controller;
 
+import cn.hutool.core.lang.UUID;
 import cn.hutool.core.util.RandomUtil;
 import com.example.democlient.domain.BizOrder;
 import com.example.democlient.domain.CreateOrder;
@@ -48,6 +49,7 @@ public class OrderController {
         createOrder.setOrderAmount(money);
         createOrder.setPlayer(player);
         createOrder.setOrderAmount(createOrder.getOrderAmount().setScale(2, BigDecimal.ROUND_HALF_UP));
+        createOrder.setDeviceId("17f30306-5a9f-4a72-b847-149c06dc41bf");
         return orderService.CreateOrder(createOrder);
     }
 

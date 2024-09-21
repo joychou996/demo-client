@@ -15,4 +15,7 @@ public class CreateOrder {
 
     String player;
 
+
+    String deviceId;
+
 }

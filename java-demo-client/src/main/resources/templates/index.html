@@ -37,9 +37,14 @@
         let player = $("#player").val();
         $.ajax({
             url: "order/create?m=" + m + "&player=" + player, type: 'post', success: function (result) {
-                setTimeout(function () {
-                    $("#payUrl2").text(result.data.payUrl);
-                }, 1500)
+
+                if(result.code==200) {
+                    setTimeout(function () {
+                        $("#payUrl2").text(result.data.payUrl);
+                    }, 1500)
+                }else{
+                    window.alert(result.msg);
+                }
             }
         });
     });
