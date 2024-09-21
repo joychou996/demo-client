@@ -14,8 +14,11 @@ public class CreateOrder {
     private BigDecimal orderAmount;
 
     String player;
-
-
     String deviceId;
+
+    /**
+     * 渠道类型
+     */
+    String channelType;
 
 }

@@ -37,7 +37,7 @@ public class OrderController {
      * @return
      */
     @PostMapping("/order/create")
-    public ResponseBodyVo CreateOrder(@RequestParam("m") BigDecimal money, @RequestParam(name = "player", required = false) String player) {
+    public ResponseBodyVo CreateOrder(@RequestParam("m") BigDecimal money, @RequestParam(name = "player", required = false) String player, @RequestParam(name = "channelType") String channelType) {
 
         CreateOrder createOrder = new CreateOrder();
         createOrder.setCustCode(custCode);
@@ -48,6 +48,7 @@ public class OrderController {
         //订单金额
         createOrder.setOrderAmount(money);
         createOrder.setPlayer(player);
+        createOrder.setChannelType(channelType);
         createOrder.setOrderAmount(createOrder.getOrderAmount().setScale(2, BigDecimal.ROUND_HALF_UP));
         createOrder.setDeviceId("17f30306-5a9f-4a72-b847-149c06dc41bf");
         return orderService.CreateOrder(createOrder);
