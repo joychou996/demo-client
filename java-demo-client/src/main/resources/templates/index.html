@@ -16,6 +16,7 @@
     <option value="cashapp">CashApp</option>
     <option value="paypal">Paypal</option>
     <option value="usdt">USDT</option>
+    <option value="chime">Chime</option>
 </select>
 
     充值金额：<input type="text" id="money" value="9.9"/>
@@ -44,7 +45,9 @@
         let m = $("#money").val();
         let player = $("#player").val();
         $.ajax({
-            url: "order/create?m=" + m + "&player=" + player+"&channelType="+t, type: 'post', success: function (result) {
+            url: "order/create?m=" + m + "&player=" + player + "&channelType=" + t,
+            type: 'post',
+            success: function (result) {
 
                 if (result.code == 200) {
                     setTimeout(function () {

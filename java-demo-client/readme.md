@@ -40,7 +40,8 @@ data:
   "unit": "订单金额单位 USD",
   "orderAmount": "订单金额",
   "player": "玩家ID,必填",
-  "deviceId": "玩家创建订单时的设备ID"
+  "deviceId": "玩家创建订单时的设备ID",
+  "channelType": "渠道类型： cashapp,paypal,chime 必填"
 }
 ```
 
