@@ -41,7 +41,7 @@ data:
   "orderAmount": "订单金额",
   "player": "玩家ID,必填",
   "deviceId": "玩家创建订单时的设备ID",
-  "channelType": "渠道类型： cashapp,paypal,chime 必填"
+  "channelType": "支付类型： cashapp,paypal,chime 必填"
 }
 ```
 
@@ -135,7 +135,8 @@ data:
   "custCode": "商户编码",
   "custOrderId": "商户订单ID",
   "custCashTag": "收款的用户标签",
-  "behalfpayAmount": "订单金额"
+  "behalfpayAmount": "订单金额",
+  "channelType": "支付类型： cashapp,paypal,chime 必填,目前只支持cashapp"
 }
 ```
 
